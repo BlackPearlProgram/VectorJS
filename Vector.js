@@ -12,7 +12,6 @@ class Vector {
     adde(vector) {
         this = this.add(vector);
         return this;
-        ;
     }
 
     sub(vector) {
