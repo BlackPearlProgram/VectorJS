@@ -56,9 +56,6 @@ vec ["+="] (2, true); // vec_c is now (3, 4)
 
 ## Additional Functions
 
-In the following code, you will see all the additional functions.
-<br><br>
-
 ### Dimensions:
 ```JavaScript
 const vec = new Vector(1, 2, 3, 4);
