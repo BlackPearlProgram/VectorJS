@@ -11,9 +11,9 @@ It has fancy syntax that is easy to learn.
 Here is how you create a vector:
 
 ```JavaScript
-const vec = new Vector(1, 2); // The first value x is 0 and y is 2
+const vec = new Vector(1, 2); // The first value x is 1 and y is 2
 ```
-The Vectors can have 0 dimensions up to 4 dimensions:
+A Vector can have from 0 dimensions up to 4 dimensions:
 ```JavaScript
 const vec_0 = new Vector();
 const vec_4 = new Vector(1, 2, 3, 4);
@@ -23,7 +23,7 @@ As you will see later, multiple inputs will count as a Vector:
 (vec) // variables that are Vectors
 (new Vector(4, 1, 3)) // new Vectors
 (0, 3) // Numbers only in the brackets
-({x: 6, y: 4}) // Objects
+({x: 6, y: 4, z: 0, w: 3}) // Objects
 ```
 <br><br>
 
@@ -31,17 +31,24 @@ As you will see later, multiple inputs will count as a Vector:
 
 ## Operations
 
-Simply write your operation into a string in square brackets:
+Simply write your operation into a string in square brackets (+, -, *, /):
 ```JavaScript
 const vec_a = new Vector(1, 2);
 const vec_b = new Vector(3, 4);
 const vec_c = vec_a ["+"] (vec_b); // vec_c is now (4, 6)
 ```
 
-To increase a vectors value, use "+=":
+To change a vectors value, use +=, -=, *=, /=:
 ```JavaScript
 const vec = new Vector(1, 2);
 vec ["+="] (2, 2); // vec_c is now (3, 4)
+```
+
+IMPORTANT <br>
+If you want to change all values, the input has to be a number and after that, write a boolean down!
+```JavaScript
+const vec = new Vector(1, 2);
+vec ["+="] (2, true); // vec_c is now (3, 4)
 ```
 <br><br>
 
