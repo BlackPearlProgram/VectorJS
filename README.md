@@ -3,7 +3,7 @@
 ## What is this?
 
 VectorJS is a free to use Vector math system for your JavaScript programs.<br>
-It has fancy syntax that is easier to read than many other systems.
+It has fancy syntax that is easy to learn.
 <br><br><br>
 
 ## Basics
