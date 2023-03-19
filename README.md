@@ -1,12 +1,12 @@
 # VectorJS
 
-## What is this?
+# What is this?
 
 VectorJS is a free to use Vector math system for your JavaScript programs.<br>
 It has fancy syntax that is easy to learn.
 <br><br><br>
 
-## Basics
+# Basics
 
 Here is how you create a vector:
 
@@ -19,7 +19,7 @@ const vec_0 = new Vector();
 const vec_4 = new Vector(1, 2, 3, 4);
 ```
 You can chain actions but note that it calculates from left to right. <br>
-This is important but go to the section [Operations](##Operations) first to understand better.
+This is important but go to the section [Operations](#operations) first to understand better.
 ```JavaScript
 const vec = new Vector(0, 1) ["+"] (0, 1) ["*"] (1, 2);
 vec ["+="] (3) ["*="] (2, true);
@@ -42,7 +42,7 @@ As you will see later, multiple inputs will count as a Vector:
 
 
 
-## Operations
+# Operations
 
 Simply write your operation into a string in square brackets (+, -, *, /):
 ```JavaScript
@@ -67,9 +67,9 @@ vec ["+="] (2, true); // vec_c is now (3, 4)
 
 
 
-## Additional Functions
+# Additional Functions
 
-### Dimensions:
+## Dimensions:
 ```JavaScript
 const vec = new Vector(1, 2, 3, 4);
 
@@ -92,7 +92,7 @@ const vec = new Vector() ["dm"] (3, 1); // vec is now (1, 1, 1)
 ```
 <br>
 
-### Distances:
+## Distances:
 Normal:
 ```JavaScript
 const vec_a = new Vector(1, 0);
