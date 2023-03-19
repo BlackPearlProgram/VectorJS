@@ -51,8 +51,9 @@
     </div>
 
     <script>
-        let a = new Vector(2, 2);
-        console.log(a["dist"](0, 0, 2, 2));
+        const vec = new Vector(0, 1) ["+"] (0, 1) ["*"] (1, 2);
+        vec ["+="] (3) ["*="] (2, true);
+        console.log(vec);
     </script>
 </body>
 </html>

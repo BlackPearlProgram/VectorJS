@@ -18,6 +18,19 @@ A Vector can have from 0 dimensions up to 4 dimensions:
 const vec_0 = new Vector();
 const vec_4 = new Vector(1, 2, 3, 4);
 ```
+You can chain actions but note that it calculates from left to right. <br>
+This is important but go to the section [Operations](##Operations) first to understand better.
+```JavaScript
+const vec = new Vector(0, 1) ["+"] (0, 1) ["*"] (1, 2);
+vec ["+="] (3) ["*="] (2, true);
+// vec is now (3, 8);
+```
+To set and get the dimensions, just write down the dimension:
+```JavaScript
+const vec = new Vector(5, 3, 4);
+vec.x += 1; // x = 6
+console.log(vec.y); // console: 3
+```
 As you will see later, multiple inputs will count as a Vector:
 ```JavaScript
 (vec) // variables that are Vectors
@@ -64,11 +77,18 @@ const vec = new Vector(1, 2, 3, 4);
 vec ["dm"] (); // (returns 4)
 
 // set dimensions
-vec ["dm"] (2); // (returns 2), vec is now (1, 2)
+vec ["dm"] (2); // returns vector (1, 2)
 
 vec ["dm"] (4) // vec is now (1, 2, 0, 0)
 
 vec ["dm"] (0) // vec is now ()
+
+// the second value indicates the number that will be created
+vec ["dm"] (3, 1) // vec is now (1, 1, 1)
+```
+That means that you elegantly can create Vectors:
+```JavaScript
+const vec = new Vector() ["dm"] (3, 1); // vec is now (1, 1, 1)
 ```
 <br>
 
