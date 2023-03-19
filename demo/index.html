@@ -11,27 +11,48 @@
 </head>
 <body>
     <div id="container">
-        <div>let a = new Vector(1, 1)["+"](1)["+"](0, 2); <a class="comment">currently: (2, 3)</a></div>
-        <div>const b = new Vector(1, 1); </div>
-        <div> </div>
-        <div>a["+="](1, 1); <a class="comment"> (3, 4)</a></div>
-        <div>a["+="]({x: 1, y: 1}); <a class="comment"> (4, 5)</a></div>
-        <div>a["+="](b); <a class="comment"> (5, 6)</a></div>
-        <div>a["+="](new Vector(1, 1)); <a class="comment"> (6, 7)</a></div>
-        <div>a = a["+"](1, 1); <a class="comment"> (7, 8)</a></div>
-        <div> </div>
-        <div>console.log(a["+"](1, 1)); <a class="comment"> output: (8, 9)</a></div>
+        <h2>Basic math:</h2>
+            <div>let a = new Vector(1, 1)["+"](1)["+"](0, 2); <a class="comment"> // currently: (2, 3)</a></div>
+            <div>const b = new Vector(1, 1); </div>
+            <div> </div>
+            <div>a["+="](1, 1); <a class="comment"> // (3, 4)</a></div>
+            <div>a["+="]({x: 1, y: 1}); <a class="comment"> // (4, 5)</a></div>
+            <div>a["+="](b); <a class="comment"> // (5, 6)</a></div>
+            <div>a["-="](new Vector(1, 1)); <a class="comment"> // (4, 5)</a></div>
+            <div>a = a["+"](1, 1); <a class="comment"> // (5, 6)</a></div>
+            <div> </div>
+            <div>console.log(a["+"](1, 1)); <a class="comment"> // output: (6, 7)</a></div>
+            
+        <h2>Distance:</h2>
+            <div>const a = new Vector(0, 1); </div>
+            <div>const b = new Vector(1, 1); </div>
+            <div>a["dist"](b); <a class="comment"> // distance: 1</a></div>
+            <div></div>
+
+            <div>const a = new Vector(1, 1); </div>
+            <div>const b = new Vector(1); <a class="comment"> // It gets treated as (1, 0)</a></div>
+            <div>a["dist"](b); <a class="comment"> // distance: 1</a></div>
+            <div></div>
+
+            <div>const a = new Vector(1); <a class="comment"> // It gets treated as (1, 0)</a></div>
+            <div>const b = new Vector(1, 1);</div>
+            <div>a["dist"](b); <a class="comment"> // distance: 1</a></div>
+
+        <h2>Dimensions:</h2>
+            <div>const a = new Vector(0, 1); </div>
+            <div>constole.log( a["dm"]() ); <a class="comment"> // output: 2</a></div>
+            <div></div>
+            
+            <div>const a = new Vector(0, 1); </div>
+            <div>a["dm"](1) </div>
+            <div>constole.log( a ); <a class="comment"> // output: (1)</a></div>
+            <div>a["dm"](2) </div>
+            <div>constole.log( a ); <a class="comment"> // output: (1, 0)</a></div>
     </div>
 
     <script>
-        let a = new Vector(1, 1)["+"](1)["+"](0, 2);
-        const b = new Vector(1, 1);
-        a["+="](1, 1);
-        a["+="]({x: 1, y: 1});
-        a["+="](b);
-        a["+="](new Vector(1, 1));
-        a = a["+"](1, 1);
-        console.log(a["+"](1, 1));
+        let a = new Vector(2, 2);
+        console.log(a["dist"](0, 0, 2, 2));
     </script>
 </body>
 </html>

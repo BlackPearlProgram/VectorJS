@@ -1,13 +1,10 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: rgb(34, 34, 34);
-    overflow: hidden;
+    background-color: rgb(53, 51, 51);
 }
 
 #container {
-    background-color: rgb(53, 51, 51);
-
     position: absolute;
     top: 50%;
     left: 50%;
@@ -22,8 +19,20 @@ body {
     flex-direction: column;
 }
 
+#container h2 {
+    text-shadow: 0 0 10px rgb(155, 137, 137);
+    color: rgb(127, 168, 255);
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+#container h2:not(:first-child) {
+    margin-top: 50px;
+    color: rgb(127, 168, 255);
+}
+
 #container div {
     min-height: 25px;
+    margin-left: 30px;
 
     color: aquamarine;
     font-family: "Lucida Console", "Courier New", monospace;
@@ -31,8 +40,4 @@ body {
 
 .comment {
     color: rgb(182, 141, 134);
-}
-
-.comment::before {
-    content: "//";
 }
