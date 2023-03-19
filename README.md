@@ -1,57 +1,85 @@
 # VectorJS
 
+## What is this?
 
-Hello, this is my free to use Vector project!
+VectorJS is a free to use Vector math system for your JavaScript programs.<br>
+It has fancy syntax that is easier to read than many other systems.
+<br><br><br>
 
+## Basics
 
-It has Vector logic like additionn distance calculation and so on.
+Here is how you create a vector:
 
-
-Initialize a Vector using the new keyword:
-
-const vector = new Vector();
-
-
-In the brackets are the values of the dimensions:
-
-const vector = new Vector(2, 3);
-
-
-It can have zero to four dimensions:
-
-const vector0 = new Vector();
-
-const vector1 = new Vector(2);
-
-const vector2 = new Vector(2, 5);
-
-const vector3 = new Vector(2, 5, 0);
-
-const vector4 = new Vector(2, 5, 0, -4);
+```JavaScript
+const vec = new Vector(1, 2); // The first value x is 0 and y is 2
+```
+The Vectors can have 0 dimensions up to 4 dimensions:
+```JavaScript
+const vec_0 = new Vector();
+const vec_4 = new Vector(1, 2, 3, 4);
+```
+As you will see later, multiple inputs will count as a Vector:
+```JavaScript
+(vec) // variables that are Vectors
+(new Vector(4, 1, 3)) // new Vectors
+(0, 3) // Numbers only in the brackets
+({x: 6, y: 4}) // Objects
+```
+<br><br>
 
 
-You can use operations.
 
-Note that multiplications and divisions behave as shown:
+## Operations
 
+Simply write your operation into a string in square brackets:
+```JavaScript
+const vec_a = new Vector(1, 2);
+const vec_b = new Vector(3, 4);
+const vec_c = vec_a ["+"] (vec_b); // vec_c is now (4, 6)
+```
 
-const vecA = new Vector(1, 2);
-
-const vecB = new Vector(2, 3);
-
-let solution;
-
-
-vecA ["+="] (vecB) ["+"] (0, 1);
-
-
-vecA ["*="] (1, 2); // multiply x by 1 and y by 2
-
-vecA ["/="] (2); // divide every value by 2
-
-vecA ["/="] (new Vector(2)); // divide the x value by 2
+To increase a vectors value, use "+=":
+```JavaScript
+const vec = new Vector(1, 2);
+vec ["+="] (2, 2); // vec_c is now (3, 4)
+```
+<br><br>
 
 
-vecA ["-="] (2);
 
-solution = vecA ["+"] (vecB);
+## Additional Functions
+
+In the following code, you will see all the additional functions.
+<br><br>
+
+### Dimensions:
+```JavaScript
+const vec = new Vector(1, 2, 3, 4);
+
+// get dimesions
+vec ["dm"] (); // (returns 4)
+
+// set dimensions
+vec ["dm"] (2); // (returns 2), vec is now (1, 2)
+
+vec ["dm"] (4) // vec is now (1, 2, 0, 0)
+
+vec ["dm"] (0) // vec is now ()
+```
+<br>
+
+### Distances:
+Normal:
+```JavaScript
+const vec_a = new Vector(1, 0);
+const vec_b = new Vector(0, 0);
+
+const dist = vec_a ["dist"] (vec_b); // dist is 1
+```
+With different dimensions:
+```JavaScript
+const vec_a = new Vector(1, 1);
+const vec_b = new Vector(1); // gets treated as (1, 0)
+
+const dist = vec_a ["dist"] (vec_b); // dist is 1
+```
