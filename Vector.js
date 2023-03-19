@@ -23,11 +23,11 @@ Vector.prototype = {
 
         let newVec = new Vector(vector, y, z, w);
         if(typeof(vector) === "object") newVec = vector;
-
-        if(this.x != undefined) this.x = (vector.x == undefined) ? (this.x) : (this.x + vector.x);
-        if(this.y != undefined) this.y = (vector.y == undefined) ? (this.y) : (this.y + vector.y);
-        if(this.z != undefined) this.z = (vector.z == undefined) ? (this.z) : (this.z + vector.z);
-        if(this.w != undefined) this.w = (vector.w == undefined) ? (this.w) : (this.w + vector.w);
+        
+        if(this.x != undefined) this.x = (newVec.x == undefined) ? (this.x) : (this.x + newVec.x);
+        if(this.y != undefined) this.y = (newVec.y == undefined) ? (this.y) : (this.y + newVec.y);
+        if(this.z != undefined) this.z = (newVec.z == undefined) ? (this.z) : (this.z + newVec.z);
+        if(this.w != undefined) this.w = (newVec.w == undefined) ? (this.w) : (this.w + newVec.w);
 
         return this;
     },
