@@ -5,6 +5,10 @@ const Vector = function(x, y, z, w) {
     if (w != undefined) this.w = w;
 }
 
+function V(x, y, z, w) {
+    return new Vector(x, y, z, w);
+}
+
 Vector.prototype = {
     "+": function(vector, y, z, w) {
 
