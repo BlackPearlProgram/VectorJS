@@ -10,6 +10,7 @@ function V(x, y, z, w) {
 }
 
 Vector.prototype = {
+    // add
     "+": function(vector, y, z, w) {
 
         let newVec = new Vector(vector, y, z, w);
@@ -29,6 +30,7 @@ Vector.prototype = {
         );
     },
     
+    // add Equals
     "+=": function(vector, y, z, w) {
 
         let newVec = new Vector(vector, y, z, w);
@@ -48,6 +50,7 @@ Vector.prototype = {
         return this;
     },
 
+    // substract
     "-": function(vector, y, z, w) {
 
         let newVec = new Vector(vector, y, z, w);
@@ -67,6 +70,7 @@ Vector.prototype = {
         );
     },
     
+    // substract Equals
     "-=": function(vector, y, z, w) {
 
         let newVec = new Vector(vector, y, z, w);
@@ -86,6 +90,7 @@ Vector.prototype = {
         return this;
     },
 
+    // mult
     "*": function(vector, y, z, w) {
 
         let newVec = new Vector(vector, y, z, w);
@@ -105,6 +110,7 @@ Vector.prototype = {
         );
     },
     
+    // mult Equals
     "*=": function(vector, y, z, w) {
 
         let newVec = new Vector(vector, y, z, w);
@@ -124,6 +130,7 @@ Vector.prototype = {
         return this;
     },
 
+    // divide
     "/": function(vector, y, z, w) {
 
         let newVec = new Vector(vector, y, z, w);
@@ -143,6 +150,7 @@ Vector.prototype = {
         );
     },
     
+    // divide Equals
     "/=": function(vector, y, z, w) {
 
         let newVec = new Vector(vector, y, z, w);
@@ -162,7 +170,48 @@ Vector.prototype = {
         return this;
     },
 
-    "dm": function(dimensions, standart) {
+    // Eqaul Equal
+    "==": function(vector, y, z, w) {
+
+        let newVec = new Vector(vector, y, z, w);
+        if(typeof(vector) === "object") newVec = vector;
+
+        return (accuracy) => {
+            accuracy = accuracy || 0;
+            let isEqual = true;
+            if(this ["dm"] () != vector ["dm"] ()) isEqual = false;
+            if(this ["dm"] () > 0 & !(this.x >= newVec.x - accuracy & this.x <= newVec.x + accuracy)) isEqual = false;
+            if(this ["dm"] () > 1 & !(this.y >= newVec.y - accuracy & this.y <= newVec.y + accuracy)) isEqual = false;
+            if(this ["dm"] () > 2 & !(this.z >= newVec.z - accuracy & this.z <= newVec.z + accuracy)) isEqual = false;
+            if(this ["dm"] () > 3 & !(this.w >= newVec.w - accuracy & this.w <= newVec.w + accuracy)) isEqual = false;
+
+            return isEqual;
+        };
+    },
+
+    // Exc Equal
+    "!=": function(vector, y, z, w) {
+
+        let newVec = new Vector(vector, y, z, w);
+        if(typeof(vector) === "object") newVec = vector;
+
+        return (accuracy) => {
+            accuracy = accuracy || 0;
+            let isEqual = true;
+            if(this ["dm"] () != vector ["dm"] ()) isEqual = false;
+            if(this ["dm"] () > 0 & !(this.x >= newVec.x - accuracy & this.x <= newVec.x + accuracy)) isEqual = false;
+            if(this ["dm"] () > 1 & !(this.y >= newVec.y - accuracy & this.y <= newVec.y + accuracy)) isEqual = false;
+            if(this ["dm"] () > 2 & !(this.z >= newVec.z - accuracy & this.z <= newVec.z + accuracy)) isEqual = false;
+            if(this ["dm"] () > 3 & !(this.w >= newVec.w - accuracy & this.w <= newVec.w + accuracy)) isEqual = false;
+
+            return !isEqual;
+        };
+    },
+
+    // dimensions
+    "dm": function(dimensions, standard) {
+
+        standard = standard | 0;
 
         if(dimensions == undefined) {
             let dimCount = 0;
@@ -174,16 +223,17 @@ Vector.prototype = {
             return dimCount;
         }
         else {
-            if(dimensions < 1) delete this.x; else if(this.x == undefined) this.x = standart;
-            if(dimensions < 2) delete this.y; else if(this.y == undefined) this.y = standart;
-            if(dimensions < 3) delete this.z; else if(this.z == undefined) this.z = standart;
-            if(dimensions < 4) delete this.w; else if(this.w == undefined) this.w = standart;
+            if(dimensions < 1) delete this.x; else if(this.x == undefined) this.x = standard;
+            if(dimensions < 2) delete this.y; else if(this.y == undefined) this.y = standard;
+            if(dimensions < 3) delete this.z; else if(this.z == undefined) this.z = standard;
+            if(dimensions < 4) delete this.w; else if(this.w == undefined) this.w = standard;
 
             return this;
         }
 
     },
 
+    // distance To
     "dist": function(vector, y, z, w) {
 
         let newVec = new Vector(vector, y, z, w);
@@ -204,6 +254,48 @@ Vector.prototype = {
             newVec.z - newThis.z,
             newVec.w - newThis.w
         );
+
+    },
+
+    // lerp
+    "lerp": function(vector) {
+
+        vector ["dm"] (this ["dm"] ());
+
+        return (t) => {
+            const newVec = new Vector();
+            if (this.x != undefined) newVec.x = this.x + (vector.x - this.x) * t;
+            if (this.y != undefined) newVec.y = this.y + (vector.y - this.y) * t;
+            if (this.z != undefined) newVec.z = this.z + (vector.z - this.z) * t;
+            if (this.w != undefined) newVec.w = this.w + (vector.w - this.w) * t;
+            return newVec;
+        }
+    },
+
+    // conversion
+    "conv": function(object, prefix) {
+        let prefix_x = prefix + "X";
+        let prefix_y = prefix + "Y";
+        return new Vector(object[prefix_x], object[prefix_y]);
+    },
+
+    // move by angle 2d
+    "moveAngle": function(axis, angle) {
+
+        return ;
+    },
+
+    // move by angle 3d
+    "moveAngles": function(axis, yaw, pitch) {
+
+        return ;
+    },
+
+    "angleTo": function(vector, rad_deg) {
+
+    },
+
+    "anglesTo": function(vector, rad_deg) {
 
     },
 }
