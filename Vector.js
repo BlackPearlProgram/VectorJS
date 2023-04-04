@@ -1,3 +1,5 @@
+// no license
+
 const Vector = function(x, y, z, w) {
     if (x != undefined) this.x = x;
     if (y != undefined) this.y = y;
